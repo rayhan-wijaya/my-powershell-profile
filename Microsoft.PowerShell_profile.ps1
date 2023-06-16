@@ -148,7 +148,7 @@ bugnDirectory:=C:\bugn
 
   $oldPath = (pwd).path;
 
-  cd "C:\bugn\src";
+  cd Join-Path -Path $configs.BUGNDIRECTORY -ChildPath "src";
   autohotkey Main.ahk;
 
   cd $oldPath;
