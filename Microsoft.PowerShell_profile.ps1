@@ -21,7 +21,7 @@ function parseConfigs ($path) {
       continue;
     }
 
-    $config, $configValue = $trimmedLine -split ":";
+    $config, $configValue = $trimmedLine -split ":=";
     $configs[$config.toUpper()] = $configValue.toUpper()
   }
 
