@@ -88,6 +88,25 @@ function v ($path, $shouldChangeWorkingDirectory) {
 }
 
 function bugn () {
+  if (-not($configs.BUGNDIRECTORY)) {
+    $warning = @"
+
+Please configure BUGNDIRECTORY at C:\profile-configs.txt to use this command
+
+e.g. (at C:\profile-configs.txt)
+
+``````
+; Profile Configs
+bugnDirectory:=C:\bugn
+``````
+
+"@
+
+    echo $warning;
+
+    return;
+  }
+
   $oldPath = (pwd).path;
 
   cd "C:\bugn\src";
