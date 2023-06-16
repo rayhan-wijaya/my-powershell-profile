@@ -46,6 +46,21 @@ function editor ($path) {
   vim $path;
 }
 
+function v ($path, $shouldChangeWorkingDirectory) {
+  $isDirectory = $path -is [System.IO.DirectoryInfo];
+
+  if (-not($isDirectory)) {
+    editor $path;
+    return;
+  }
+
+  if ($isDirectory -and $shouldChangeWorkingDirectory) {
+    cd $path;
+  }
+
+  editor .;
+}
+
 function bugn () {
   $oldPath = (pwd).path;
 
