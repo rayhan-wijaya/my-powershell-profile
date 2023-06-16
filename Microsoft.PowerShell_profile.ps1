@@ -65,6 +65,34 @@ foreach ($path in $paths) {
   $env:path = "$env:path;$path";
 }
 
+# Bookmarks
+
+function parseBookmarks ($path) {
+  if (-not(test-path $path)) {
+    return;
+  }
+
+  $bookmarks = @{};
+  $content = get-content $path;
+
+  foreach ($line in $content) {
+    $trimmedLine = $line.trim();
+
+    if (shouldIgnoreLine($trimmedLine)) {
+      continue;
+    }
+
+    $bookmark, $bookmarkValue = $trimmedLine -split ":=";
+    $bookmarks[$bookmark] = $bookmarkValue;
+  }
+
+  return $bookmarks;
+}
+
+$bookmarksPath = "$HOME/bookmarks.txt";
+$bookmarks = parseBookmarks($bookmarksPath);
+$b = $bookmarks;
+
 # Functions
 
 function editor ($path) {
