@@ -33,9 +33,29 @@ $configs = parseConfigs($configsPath);
 
 # Paths
 
-$paths = @(
-  "C:\Program Files\Autohotkey"
-);
+function parsePaths ($path) {
+  if (-not(test-path $path)) {
+    return;
+  }
+
+  $paths = [System.Collections.ArrayList]@();
+  $content = get-content $path;
+
+  foreach ($line in $content) {
+    $trimmedLine = $line.trim();
+
+    if (shouldIgnoreLine($trimmedLine)) {
+      continue;
+    }
+
+    $paths.add($trimmedLine);
+  }
+
+  return $paths;
+}
+
+$pathsPath = "$HOME/paths.txt";
+$paths = parsePaths($pathsPath);
 
 foreach ($path in $paths) {
   $env:path = "$env:path;$path";
