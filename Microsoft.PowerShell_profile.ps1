@@ -1,3 +1,9 @@
+# Core Functions
+
+function shouldIgnoreLine ($line) {
+  return $trimmedLine.startsWith(";") -or $trimmedLine -eq "";
+}
+
 # Profile Configs
 
 function parseConfigs ($path) {
