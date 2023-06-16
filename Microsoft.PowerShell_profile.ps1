@@ -17,7 +17,7 @@ function parseConfigs ($path) {
   foreach ($line in $content) {
     $trimmedLine = $line.trim();
 
-    if ($trimmedLine.startsWith(";") -or $trimmedLine -eq "") {
+    if (shouldIgnoreLine($trimmedLine)) {
       continue;
     }
 
