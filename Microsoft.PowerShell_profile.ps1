@@ -38,7 +38,7 @@ foreach ($path in $paths) {
 # Functions
 
 function editor ($path) {
-  if ($configs.USENVIM == "TRUE") {
+  if ($configs.USENVIM -eq "TRUE") {
     nvim $path;
     return;
   }
