@@ -72,7 +72,12 @@ function editor ($path) {
   vim $path;
 }
 
-function v ($path, $shouldChangeWorkingDirectory) {
+function v {
+  param (
+    [string]$path,
+    [boolean]$shouldChangeWorkingDirectory = $true
+  )
+
   $isDirectory = $path -is [System.IO.DirectoryInfo];
 
   if (-not($isDirectory)) {
