@@ -37,6 +37,15 @@ foreach ($path in $paths) {
 
 # Functions
 
+function editor ($path) {
+  if ($configs.USENVIM == "TRUE") {
+    nvim $path;
+    return;
+  }
+
+  vim $path;
+}
+
 function bugn () {
   $oldPath = (pwd).path;
 
