@@ -33,8 +33,8 @@ $HOME/bookmarks.txt:
 ```
 ; My Bookmarks
 
-projects:=<Your home directory>/projects
-profileDir:=<Your home directory>/Documents/WindowsPowershell
+projects:=$HOME/projects
+profileDir:=$HOME/Documents/WindowsPowershell
 ```
 
 Usage: $b.projects, $b.profileDir
