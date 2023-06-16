@@ -82,7 +82,7 @@ function v {
     [boolean]$shouldChangeWorkingDirectory = $true
   )
 
-  $isDirectory = $path -is [System.IO.DirectoryInfo];
+  $isDirectory = isDirectory($path);
 
   if (-not($isDirectory)) {
     editor $path;
