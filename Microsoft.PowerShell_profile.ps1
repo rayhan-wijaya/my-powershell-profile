@@ -83,7 +83,7 @@ function parseBookmarks ($path) {
     }
 
     $bookmark, $bookmarkValue = $trimmedLine -split ":=";
-    $bookmarkValue = $bookmarkValue.replace("`$HOME", $HOME);
+    $bookmarkValue = $bookmarkValue.replace("`$HOME", $HOME); # magic
 
     $bookmarks[$bookmark] = $bookmarkValue;
   }
