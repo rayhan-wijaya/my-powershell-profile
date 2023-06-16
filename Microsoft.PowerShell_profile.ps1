@@ -4,6 +4,10 @@ function shouldIgnoreLine ($line) {
   return $trimmedLine.startsWith(";") -or $trimmedLine -eq "";
 }
 
+function isDirectory ($path) {
+  return (get-item $path).PSIsContainer;
+}
+
 # Profile Configs
 
 function parseConfigs ($path) {
