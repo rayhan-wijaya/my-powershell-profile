@@ -128,9 +128,9 @@ function bugn () {
   if (-not($configs.BUGNDIRECTORY)) {
     $warning = @"
 
-Please configure BUGNDIRECTORY at C:\profile-configs.txt to use this command
+Please configure BUGNDIRECTORY at `$HOME\profile-configs.txt to use this command
 
-e.g. (at C:\profile-configs.txt)
+e.g. (at `$HOME\profile-configs.txt)
 
 ``````
 ; Profile Configs
