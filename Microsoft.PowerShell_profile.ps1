@@ -139,6 +139,39 @@ foreach ($module in $modules) {
 
 echo "  * Loaded modules";
 
+# Aliases;
+
+function parseAliases ($path) {
+  if (-not (test-path $path)) {
+    return;
+  }
+
+  $aliases = @{};
+  $content = get-content $path;
+
+  foreach ($line in $content) {
+    $trimmedLine = $line.trim();
+
+    if (shouldIgnoreLine($trimmedLine)) {
+      continue;
+    }
+
+    $alias, $aliasValue = $line -split ":=";
+    $aliases[$alias] = $aliasValue;
+  }
+
+  return $aliases;
+}
+
+$aliasesPath = "$HOME/aliases.txt";
+$aliases = parseAliases($aliasesPath);
+
+$aliases.GetEnumerator() | Foreach-Object {
+  Set-Alias -name $_.name -Value $_.value;
+}
+
+echo "Parsed aliases";
+
 # Functions
 
 function editor ($path) {
