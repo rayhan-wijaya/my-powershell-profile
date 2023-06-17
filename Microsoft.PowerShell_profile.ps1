@@ -153,3 +153,14 @@ bugnDirectory:=C:\bugn
 
   cd $oldPath;
 }
+
+# Chocolatey
+
+# Please delete the other chocolatey snippet at the bottom of the
+# file if you've installed chocolatey.
+
+$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+
+if (Test-Path($ChocolateyProfile)) {
+  Import-Module "$ChocolateyProfile"
+}
