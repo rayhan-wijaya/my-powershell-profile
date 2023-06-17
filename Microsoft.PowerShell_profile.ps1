@@ -128,7 +128,11 @@ $modulesPath = "$HOME/modules.txt";
 $modules = parseModules($modulesPath);
 
 foreach ($module in $modules) {
-  Import-Module $module;
+  if ($module -eq 0) {
+    continue;
+  }
+
+  Import-Module ($module);
 }
 
 echo "Parsed modules";
