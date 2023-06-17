@@ -35,6 +35,8 @@ function parseConfigs ($path) {
 $configsPath = "$HOME/profile-configs.txt";
 $configs = parseConfigs($configsPath);
 
+echo "Parsed configs";
+
 # Paths
 
 function parsePaths ($path) {
@@ -64,6 +66,8 @@ $paths = parsePaths($pathsPath);
 foreach ($path in $paths) {
   $env:path = "$env:path;$path";
 }
+
+echo "Parsed paths";
 
 # Bookmarks
 
@@ -95,6 +99,8 @@ $bookmarksPath = "$HOME/bookmarks.txt";
 $bookmarks = parseBookmarks($bookmarksPath);
 $b = $bookmarks;
 
+echo "Parsed bookmarks";
+
 # Modules
 
 function parseModules ($path) {
@@ -124,6 +130,8 @@ $modules = parseModules($modulesPath);
 foreach ($module in $modules) {
   Import-Module $module;
 }
+
+echo "Parsed modules";
 
 # Functions
 
@@ -194,3 +202,5 @@ $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
+
+echo "Loaded in chocolatey";
