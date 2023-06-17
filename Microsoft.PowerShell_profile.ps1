@@ -32,7 +32,7 @@ function parseConfigs ($path) {
   return $configs;
 }
 
-$configsPath = "$HOME/profile-configs.txt";
+$configsPath = "$HOME/profile/configs.txt";
 $configs = parseConfigs($configsPath);
 
 echo "Parsed configs";
@@ -60,7 +60,7 @@ function parsePaths ($path) {
   return $paths;
 }
 
-$pathsPath = "$HOME/paths.txt";
+$pathsPath = "$HOME/profile/paths.txt";
 $paths = parsePaths($pathsPath);
 
 foreach ($path in $paths) {
@@ -95,7 +95,7 @@ function parseBookmarks ($path) {
   return $bookmarks;
 }
 
-$bookmarksPath = "$HOME/bookmarks.txt";
+$bookmarksPath = "$HOME/profile/bookmarks.txt";
 $bookmarks = parseBookmarks($bookmarksPath);
 $b = $bookmarks;
 
@@ -124,7 +124,7 @@ function parseModules ($path) {
   return $modules;
 }
 
-$modulesPath = "$HOME/modules.txt";
+$modulesPath = "$HOME/profile/modules.txt";
 $modules = parseModules($modulesPath);
 
 echo "Parsed modules";
@@ -163,7 +163,7 @@ function parseAliases ($path) {
   return $aliases;
 }
 
-$aliasesPath = "$HOME/aliases.txt";
+$aliasesPath = "$HOME/profile/aliases.txt";
 $aliases = parseAliases($aliasesPath);
 
 $aliases.GetEnumerator() | Foreach-Object {
