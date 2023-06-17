@@ -95,6 +95,36 @@ $bookmarksPath = "$HOME/bookmarks.txt";
 $bookmarks = parseBookmarks($bookmarksPath);
 $b = $bookmarks;
 
+# Modules
+
+function parseModules ($path) {
+  if (-not (test-path $path)) {
+    return;
+  }
+
+  $modules = [System.Collections.ArrayList]@();
+  $content = get-content $path;
+
+  foreach ($line in $content) {
+    $trimmedLine = $line.trim();
+
+    if (shouldIgnoreLine($trimmedLine)) {
+      continue;
+    }
+
+    $modules.add($trimmedLine);
+  }
+
+  return $modules;
+}
+
+$modulesPath = "$HOME/modules.txt";
+$modules = parseModules($modulesPath);
+
+foreach ($module in $modules) {
+  Import-Module $module;
+}
+
 # Functions
 
 function editor ($path) {
