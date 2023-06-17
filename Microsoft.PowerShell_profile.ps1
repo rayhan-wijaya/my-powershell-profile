@@ -185,7 +185,7 @@ function editor ($path) {
 
 function v {
   param (
-    [string]$path,
+    [string]$path = ".",
     [boolean]$shouldChangeWorkingDirectory = $true
   )
 
