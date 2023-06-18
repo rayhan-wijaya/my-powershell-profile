@@ -166,7 +166,7 @@ function parseAliases ($path) {
 $aliasesPath = "$HOME/profile/aliases.txt";
 $aliases = parseAliases($aliasesPath);
 
-if ($aliases.count > 0) {
+if ($aliases.count -gt 0) {
   $aliases.GetEnumerator() | Foreach-Object {
     Set-Alias -name $_.name -Value $_.value;
   }
