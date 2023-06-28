@@ -205,6 +205,10 @@ function v {
   editor .;
 }
 
+function runAutohotkey ($argsToPass) {
+  Invoke-Expression "$($configs.AUTOHOTKEYEXE) $argsToPass";
+}
+
 function bugn () {
   if (-not($configs.BUGNDIRECTORY)) {
     $warning = @"
@@ -228,7 +232,7 @@ bugnDirectory:=C:\bugn
   $oldPath = (pwd).path;
 
   cd (Join-Path -Path $configs.BUGNDIRECTORY -ChildPath "src");
-  autohotkey Main.ahk;
+  runAutohotkey Main.ahk;
 
   cd $oldPath;
 }
