@@ -237,6 +237,11 @@ bugnDirectory:=C:\bugn
   cd $oldPath;
 }
 
+function mkcd ($directory) {
+  mkdir $directory;
+  cd $directory;
+}
+
 # Chocolatey
 
 # Please delete the other chocolatey snippet at the bottom of the
