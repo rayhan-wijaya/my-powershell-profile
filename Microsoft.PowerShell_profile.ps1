@@ -37,6 +37,42 @@ $configs = parseConfigs($configsPath);
 
 echo "Parsed configs";
 
+# Environment Variables
+
+function parseEnvVars ($path) {
+  if (-not(test-path $path)) {
+    return;
+  }
+
+  $envVars = @{};
+  $content = get-content $path;
+
+  foreach ($line in $content) {
+    $trimmedLine = $line.trim();
+
+    if (shouldIgnoreLine($trimmedLine)) {
+      continue;
+    }
+
+    $envVar, $envVarValue = $trimmedLine -split ":=";
+    $envVars[$envVar.toUpper()] = $envVarValue.toUpper()
+  }
+
+  return $envVars;
+}
+
+$envVarsPath = "$HOME/profile/env-vars.txt";
+$envVars = parseConfigs($envVarsPath);
+
+if ($envVars.count -gt 0) {
+  $envVars.GetEnumerator() | Foreach-Object {
+    $path = join-path "env:" $_.name;
+    set-item $path $_.value;
+  }
+}
+
+echo "Parsed environment variables";
+
 # Paths
 
 function parsePaths ($path) {
