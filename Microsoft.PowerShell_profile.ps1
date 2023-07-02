@@ -62,7 +62,7 @@ function parseEnvVars ($path) {
 }
 
 $envVarsPath = "$HOME/profile/env-vars.txt";
-$envVars = parseConfigs($envVarsPath);
+$envVars = parseEnvVars($envVarsPath);
 
 if ($envVars.count -gt 0) {
   $envVars.GetEnumerator() | Foreach-Object {
