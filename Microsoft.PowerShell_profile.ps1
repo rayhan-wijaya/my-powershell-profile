@@ -55,7 +55,7 @@ function parseEnvVars ($path) {
     }
 
     $envVar, $envVarValue = $trimmedLine -split ":=";
-    $envVars[$envVar.toUpper()] = $envVarValue.toUpper()
+    $envVars[$envVar] = $envVarValue;
   }
 
   return $envVars;
