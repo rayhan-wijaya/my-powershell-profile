@@ -278,9 +278,17 @@ function mkcd ($directory) {
   cd $directory;
 }
 
-function fz () {
+function fz {
+  param (
+    [switch]$v = $false
+  )
+
   $directory = ls -n "~/projects" | fzf;
   cd "~/projects/$directory";
+
+  if ($v) {
+    v .;
+  }
 }
 
 # Chocolatey
