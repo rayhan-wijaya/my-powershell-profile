@@ -291,6 +291,10 @@ function fz {
   }
 }
 
+function fzv {
+  fz -v;
+}
+
 # Chocolatey
 
 # Please delete the other chocolatey snippet at the bottom of the
