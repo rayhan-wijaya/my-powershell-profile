@@ -291,9 +291,11 @@ function fz {
 
   cd "~/projects/$directory";
 
-  if ($v) {
-    v .;
+  if (-not($v)) {
+    return;
   }
+
+  v .;
 }
 
 function fzv {
