@@ -284,6 +284,11 @@ function fz {
   )
 
   $directory = ls -n "~/projects" | fzf;
+
+  if (-not($directory)) {
+    return;
+  }
+
   cd "~/projects/$directory";
 
   if ($v) {
