@@ -278,6 +278,11 @@ function mkcd ($directory) {
   cd $directory;
 }
 
+function fz () {
+  $directory = ls -n "~/projects" | fzf;
+  cd "~/projects/$directory";
+}
+
 # Chocolatey
 
 # Please delete the other chocolatey snippet at the bottom of the
