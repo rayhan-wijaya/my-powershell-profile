@@ -278,7 +278,7 @@ function mkcd ($directory) {
   cd $directory;
 }
 
-function fz {
+function fp {
   param (
     [switch]$v = $false
   )
@@ -298,7 +298,7 @@ function fz {
   v .;
 }
 
-function fzv {
+function fpv {
   fz -v;
 }
 
