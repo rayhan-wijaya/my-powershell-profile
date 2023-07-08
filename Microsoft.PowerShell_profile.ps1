@@ -302,6 +302,10 @@ function fpv {
   fz -v;
 }
 
+function .. {
+  cd ..;
+}
+
 # Chocolatey
 
 # Please delete the other chocolatey snippet at the bottom of the
