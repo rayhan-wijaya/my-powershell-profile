@@ -35,8 +35,6 @@ function parseConfigs ($path) {
 $configsPath = "$HOME/profile/configs.txt";
 $configs = parseConfigs($configsPath);
 
-echo "Parsed configs";
-
 # Environment Variables
 
 function parseEnvVars ($path) {
@@ -71,8 +69,6 @@ if ($envVars.count -gt 0) {
   }
 }
 
-echo "Parsed environment variables";
-
 # Paths
 
 function parsePaths ($path) {
@@ -102,8 +98,6 @@ $paths = parsePaths($pathsPath);
 foreach ($path in $paths) {
   $env:path = "$env:path;$path";
 }
-
-echo "Parsed paths";
 
 # Bookmarks
 
@@ -135,8 +129,6 @@ $bookmarksPath = "$HOME/profile/bookmarks.txt";
 $bookmarks = parseBookmarks($bookmarksPath);
 $b = $bookmarks;
 
-echo "Parsed bookmarks";
-
 # Modules
 
 function parseModules ($path) {
@@ -163,8 +155,6 @@ function parseModules ($path) {
 $modulesPath = "$HOME/profile/modules.txt";
 $modules = parseModules($modulesPath);
 
-echo "Parsed modules";
-
 foreach ($module in $modules) {
   if ($module -eq 0) {
     continue;
@@ -173,7 +163,7 @@ foreach ($module in $modules) {
   Import-Module ($module);
 }
 
-echo "  * Loaded modules";
+echo "Loaded modules";
 
 # Aliases;
 
@@ -207,8 +197,6 @@ if ($aliases.count -gt 0) {
     Set-Alias -name $_.name -Value $_.value;
   }
 }
-
-echo "Parsed aliases";
 
 # Functions
 
