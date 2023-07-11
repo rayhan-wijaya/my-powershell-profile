@@ -163,8 +163,6 @@ foreach ($module in $modules) {
   Import-Module ($module);
 }
 
-echo "Loaded modules";
-
 # Aliases;
 
 function parseAliases ($path) {
@@ -304,5 +302,3 @@ $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
-
-echo "Loaded in chocolatey";
