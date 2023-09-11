@@ -285,7 +285,7 @@ function fp {
 }
 
 function fpv {
-    fz -v;
+    fp -v;
 }
 
 function .. {
