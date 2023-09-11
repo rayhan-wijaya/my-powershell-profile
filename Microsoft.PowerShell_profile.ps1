@@ -259,6 +259,10 @@ bugnDirectory:=C:\bugn
     cd $oldPath;
 }
 
+function cbc {
+    rm -r -fo ~\AppData\Roaming\bug.n\data;
+}
+
 function mkcd ($directory) {
     mkdir $directory;
     cd $directory;
