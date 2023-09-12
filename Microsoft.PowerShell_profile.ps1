@@ -269,10 +269,6 @@ function mkcd ($directory) {
 }
 
 function fp {
-    param (
-        [switch]$v = $false
-    )
-
     $directory = ls -n "~/projects" | fzf;
 
     if (-not($directory)) {
@@ -280,12 +276,6 @@ function fp {
     }
 
     cd "~/projects/$directory";
-
-    if (-not($v)) {
-        return;
-    }
-
-    v .;
 }
 
 function fpv {
