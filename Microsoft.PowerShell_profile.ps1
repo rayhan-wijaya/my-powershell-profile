@@ -277,7 +277,7 @@ function fp {
         return;
     }
 
-    $cachedProjects.Add($directory);
+    $cachedProjects.Add($directory) | out-null;
 
     cd "~/projects/$directory";
 }
