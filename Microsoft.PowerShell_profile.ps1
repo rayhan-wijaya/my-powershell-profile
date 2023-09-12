@@ -268,8 +268,22 @@ function mkcd ($directory) {
     cd $directory;
 }
 
+$cachedProjects = New-Object System.Collections.Generic.HashSet[System.String];
+
 function fp {
     $directory = ls -n "~/projects" | fzf;
+
+    if (-not($directory)) {
+        return;
+    }
+
+    $cachedProjects.Add($directory);
+
+    cd "~/projects/$directory";
+}
+
+function fpc {
+    $directory = $cachedProjects | fzf;
 
     if (-not($directory)) {
         return;
